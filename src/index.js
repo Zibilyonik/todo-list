@@ -6,18 +6,18 @@ class Todo{
     this.completed = completed; 
     this.index = index;
   }
-  add(container) {
-    let temp = document.getElementById(container);
+  add() {
+    let temp = document.getElementById("Container");
     let obj = document.createElement('li');
     let checkbox = document.createElement('input');
-    checkbox.classList.add('form-check-input me-1');
+    checkbox.classList.add('form-check-input', 'me-1');
     checkbox.type = "checkbox";
     checkbox.value = "";
     checkbox.ariaLabel = "...";
     obj.id = this.index;
-    obj.classList.add('list-group-item', 'list-item-style')
+    obj.classList.add('list-group-item', 'list-item-style', 'ml-3')
     obj.appendChild(checkbox);
-    obj.innerText = this.description;
+    obj.innerHTML = obj.innerHTML + this.description;
     if(this.completed){
       obj.classList.add('disabled');
     }
@@ -31,9 +31,8 @@ let second = new Todo("take out the trash", true, 1);
 let third = new Todo ("go to toilet", true, 2);
 let arr = [first, second, third];
 function printList(list) {
-  let container = document.getElementById("Container");
   for(let i = 0; i < list.length; i += 1){
-    list[i].add(container);
+    list[i].add();
   }
 }
 printList(arr);
