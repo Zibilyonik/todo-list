@@ -9,7 +9,7 @@ This JS project allows users to keep their days organised by allowing them to ad
 
 
 ## Screenshot of the page
-![Screenshot Profile Page](./assets/screenshot.png)
+![Screenshot Profile Page](./.github/assets/screenshot.png)
 
 
 ## Built With
