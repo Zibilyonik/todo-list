@@ -1,0 +1,39 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zibilyonik/todo-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zibilyonik/todo-list/issues"
+  },
+  "homepage": "https://github.com/Zibilyonik/todo-list#readme",
+  "devDependencies": {
+    "css-loader": "^5.2.6",
+    "hint": "^6.1.4",
+    "html-webpack-plugin": "^5.3.2",
+    "style-loader": "^3.1.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.19.0",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
