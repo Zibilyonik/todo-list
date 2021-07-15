@@ -1,4 +1,5 @@
 import './style.css';
+import changeStatus from './changeStatus.js';
 
 class Todo {
   constructor(description = '', completed = false, index = 0) {
@@ -13,15 +14,16 @@ class Todo {
     const checkbox = document.createElement('input');
     checkbox.classList.add('form-check-input');
     checkbox.type = 'checkbox';
-    checkbox.value = '';
+    checkbox.id = `${this.index}-checkbox`;
     checkbox.ariaLabel = '...';
     obj.id = this.index;
     obj.classList.add('list-group-item', 'list-item-style', 'mx-2');
-    obj.appendChild(checkbox);
-    obj.innerHTML += this.description;
     if (this.completed) {
+      checkbox.defaultChecked = true;
       obj.classList.add('disabled');
     }
+    obj.appendChild(checkbox);
+    obj.innerHTML += this.description;
     temp.appendChild(obj);
   }
 }
@@ -33,6 +35,8 @@ const arr = [first, second, third];
 function printList(list) {
   for (let i = 0; i < list.length; i += 1) {
     list[i].add();
+    const checkbox = document.getElementById(`${i}-checkbox`);
+    checkbox.onchange = function () { changeStatus(list, i); };
   }
 }
 printList(arr);
