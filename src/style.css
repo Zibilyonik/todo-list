@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(247, 233, 217);
+  background-color: rgb(247, 240, 232);
 }
 
 #Container {
@@ -9,4 +9,6 @@ body {
 
 .list-item-style {
   background-color: white;
+  cursor: move;
+  user-select: none;
 }

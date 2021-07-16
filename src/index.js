@@ -1,20 +1,10 @@
 import './style.css';
-import changeStatus from './changeStatus.js';
-import { dragger, heldItem, droppedOn } from './dragging.js';
+import {
+  dragger, heldItem, droppedOn, printList,
+} from './dragging.js';
 
 let arr;
 
-function printList(list) {
-  const temp = document.getElementById('Container');
-  temp.innerText = '';
-  for (let i = 0; i < list.length; i += 1) {
-    list[i].add();
-    const checkbox = document.getElementById(`${i}-checkbox`);
-    checkbox.onchange = () => { changeStatus(list, i); };
-  }
-  localStorage.clear();
-  localStorage.setItem('todoArray', JSON.stringify(list));
-}
 class Todo {
   constructor(description = '', completed = false, index = 0) {
     this.description = description;
