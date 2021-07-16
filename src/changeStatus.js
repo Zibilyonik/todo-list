@@ -6,6 +6,8 @@ const changeStatus = (arr, itemId) => {
   } else {
     item.classList.remove('disabled');
   }
+  localStorage.clear();
+  localStorage.setItem('todoArray', JSON.stringify(arr));
 };
 
 export default changeStatus;
