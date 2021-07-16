@@ -12,6 +12,8 @@ function printList(list) {
     const checkbox = document.getElementById(`${i}-checkbox`);
     checkbox.onchange = () => { changeStatus(list, i); };
   }
+  localStorage.clear();
+  localStorage.setItem('todoArray', JSON.stringify(list));
 }
 class Todo {
   constructor(description = '', completed = false, index = 0) {
