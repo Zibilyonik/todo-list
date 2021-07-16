@@ -1,4 +1,9 @@
 import './style.css';
+import {
+  dragger, heldItem, droppedOn, printList,
+} from './dragging.js';
+
+let arr;
 
 class Todo {
   constructor(description = '', completed = false, index = 0) {
@@ -13,26 +18,27 @@ class Todo {
     const checkbox = document.createElement('input');
     checkbox.classList.add('form-check-input');
     checkbox.type = 'checkbox';
-    checkbox.value = '';
+    checkbox.id = `${this.index}-checkbox`;
     checkbox.ariaLabel = '...';
     obj.id = this.index;
     obj.classList.add('list-group-item', 'list-item-style', 'mx-2');
-    obj.appendChild(checkbox);
-    obj.innerHTML += this.description;
+    obj.draggable = true;
     if (this.completed) {
+      checkbox.defaultChecked = true;
       obj.classList.add('disabled');
     }
+    obj.appendChild(checkbox);
+    obj.innerHTML += this.description;
     temp.appendChild(obj);
+    obj.addEventListener('drag', heldItem);
+    obj.addEventListener('dragover', droppedOn);
+    obj.addEventListener('drop', () => { dragger(arr); printList(arr); });
   }
 }
 
 const first = new Todo('clean the house', false, 0);
 const second = new Todo('take out the trash', true, 1);
 const third = new Todo('go to toilet', true, 2);
-const arr = [first, second, third];
-function printList(list) {
-  for (let i = 0; i < list.length; i += 1) {
-    list[i].add();
-  }
-}
+arr = [first, second, third];
+
 printList(arr);
