@@ -3,7 +3,9 @@ import changeStatus from './changeStatus.js';
 import {
   dragger, heldItem, droppedOn,
 } from './dragging.js';
-import { addTodo, deleteMarked, deleteTodo } from './adjustItems.js';
+import {
+  addTodo, deleteMarked, deleteTodo, editTodo,
+} from './adjustItems.js';
 
 let arr = [];
 let temp = [];
@@ -15,11 +17,7 @@ function printList(list) {
     list[i - 1].add();
     const checkbox = document.getElementById(`${i}-checkbox`);
     const item = checkbox.nextSibling;
-    item.addEventListener('input', () => {
-      list[i - 1].description = item.innerText;
-      localStorage.clear();
-      localStorage.setItem('todoArray', JSON.stringify(list));
-    });
+    item.addEventListener('input', () => { editTodo(list, i); });
     checkbox.onchange = () => { changeStatus(list, i); };
   }
   localStorage.clear();
@@ -46,6 +44,7 @@ class Todo {
     checkbox.classList.add('form-check-input', 'mt-3', 'checkbox-style');
     checkbox.type = 'checkbox';
     checkbox.id = `${this.index}-checkbox`;
+    texter.id = `${this.index}-text`;
     checkbox.ariaLabel = '...';
     obj.id = this.index;
     texter.contentEditable = 'true';

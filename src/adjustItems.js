@@ -23,10 +23,19 @@ function deleteTodo(arr, index) {
   localStorage.setItem('todoArray', JSON.stringify(arr));
 }
 
+function editTodo(arr, index) {
+  const obj = document.getElementById(`${index}-text`);
+  arr[index - 1].description = obj.innerText;
+  localStorage.clear();
+  localStorage.setItem('todoArray', JSON.stringify(arr));
+}
+
 function deleteMarked(arr) {
   const bonk = arr.filter((item) => item.completed === false);
   arr = [...bonk];
   localStorage.clear();
   localStorage.setItem('todoArray', JSON.stringify(arr));
 }
-export { addTodo, deleteTodo, deleteMarked };
+export {
+  addTodo, deleteTodo, editTodo, deleteMarked,
+};
