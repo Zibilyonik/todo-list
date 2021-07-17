@@ -15,10 +15,6 @@ function printList(list) {
     list[i - 1].add();
     const checkbox = document.getElementById(`${i}-checkbox`);
     const item = checkbox.nextSibling;
-    const delBtn = document.getElementById(`${i}-del`);
-    delBtn.addEventListener('click', () => {
-      deleteTodo(list, i);
-    });
     item.addEventListener('input', () => {
       list[i].description = item.innerText;
       localStorage.clear();
@@ -65,6 +61,10 @@ class Todo {
     obj.appendChild(texter);
     obj.appendChild(delBtn);
     temp.appendChild(obj);
+    delBtn.addEventListener('click', () => {
+      deleteTodo(arr, this.index);
+      printList(arr);
+    });
     obj.addEventListener('drag', heldItem);
     obj.addEventListener('dragover', droppedOn);
     obj.addEventListener('drop', () => { dragger(arr); printList(arr); });
