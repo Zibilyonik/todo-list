@@ -10,7 +10,7 @@ Users can:
 - Create tasks
 - Change the display order of the tasks by dragging them from the list items(excluding text, button and checkbox)
 - Mark their tasks as complete by using the checkboxes
-- Edit the description of their tasks by clicking on the current description text. ***to accept the changes, simply click outside of the edit area***
+- Edit the description of their tasks by clicking on the current description text. ***To accept the changes, simply click outside of the edit area***
 - Delete the tasks by clicking the "Delete" button located on the list item
 - Delete all tasks marked as complete by clicking on the "Clear All Completed Tasks" button
 
