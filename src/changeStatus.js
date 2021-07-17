@@ -1,7 +1,7 @@
 const changeStatus = (arr, itemId) => {
   const item = document.getElementById(itemId);
-  arr[itemId].completed = !arr[itemId].completed;
-  if (arr[itemId].completed) {
+  arr[itemId - 1].completed = !arr[itemId - 1].completed;
+  if (arr[itemId - 1].completed) {
     item.classList.add('disabled');
   } else {
     item.classList.remove('disabled');

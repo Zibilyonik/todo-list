@@ -1,11 +1,20 @@
 # Todo List
-A project based on JS that allows users to keep track of their tasks.
+A project based on JS that allows users to keep track of their tasks. The tasks can be edited and reordered to the user's desire.
 
 
 
 
-## Project Decription
+## Project Description
 This JS project allows users to keep their days organised by allowing them to add, mark, order and edit tasks as they wish.
+Users can:
+- Create tasks
+- Change the display order of the tasks by dragging them from the list items(excluding text, button and checkbox)
+- Mark their tasks as complete by using the checkboxes
+- Edit the description of their tasks by clicking on the current description text. ***To accept the changes, simply click outside of the edit area***
+- Delete the tasks by clicking the "Delete" button located on the list item
+- Delete all tasks marked as complete by clicking on the "Clear All Completed Tasks" button
+
+This way, users can keep their to-do list clean and organised for a productive day.
 
 
 ## Screenshot of the page
