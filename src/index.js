@@ -16,7 +16,7 @@ function printList(list) {
     const checkbox = document.getElementById(`${i}-checkbox`);
     const item = checkbox.nextSibling;
     item.addEventListener('input', () => {
-      list[i].description = item.innerText;
+      list[i - 1].description = item.innerText;
       localStorage.clear();
       localStorage.setItem('todoArray', JSON.stringify(list));
     });
