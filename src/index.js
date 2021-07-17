@@ -2,7 +2,7 @@ import './style.css';
 import {
   dragger, heldItem, droppedOn, printList,
 } from './dragging.js';
-import { addTodo, editTodo, deleteTodo } from './adjustItems.js';
+import { addTodo } from './adjustItems.js';
 
 const arr = [];
 let temp = [];

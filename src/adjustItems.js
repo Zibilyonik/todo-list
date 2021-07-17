@@ -16,7 +16,8 @@ function deleteTodo(arr, index) {
 }
 
 function editTodo(arr, index) {
-
+  arr = [];
+  return index;
 }
 
 export { addTodo, deleteTodo, editTodo };
