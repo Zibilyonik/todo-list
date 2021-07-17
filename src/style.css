@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(247, 240, 232);
+  background-color: rgb(255, 255, 255);
   min-height: 100vh;
 }
 
@@ -16,9 +16,14 @@ body {
 }
 
 .del-button-style {
+  background-color:rgb(199, 181, 181);
   position: absolute;
   bottom: 8px;
-  left: 18vw;
+  left: 18.4vw;
+}
+
+.button-style {
+  background-color:rgb(199, 181, 181);
 }
 
 p {

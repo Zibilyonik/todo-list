@@ -1,10 +1,10 @@
 # Todo List
-A project based on JS that allows users to keep track of their tasks.
+A project based on JS that allows users to keep track of their tasks. The tasks can be edited and reordered to the user's desire.
 
 
 
 
-## Project Decription
+## Project Description
 This JS project allows users to keep their days organised by allowing them to add, mark, order and edit tasks as they wish.
 
 
