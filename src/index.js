@@ -34,7 +34,7 @@ class Todo {
   }
 
   add() {
-    const temp = document.getElementById('Container');
+    const mainCont = document.getElementById('Container');
     const obj = document.createElement('li');
     const checkbox = document.createElement('input');
     const texter = document.createElement('p');
@@ -60,10 +60,11 @@ class Todo {
     obj.appendChild(checkbox);
     obj.appendChild(texter);
     obj.appendChild(delBtn);
-    temp.appendChild(obj);
+    mainCont.appendChild(obj);
     delBtn.addEventListener('click', () => {
       deleteTodo(arr, this.index);
       printList(arr);
+      temp = [...arr];
     });
     obj.addEventListener('drag', heldItem);
     obj.addEventListener('dragover', droppedOn);
@@ -85,7 +86,10 @@ if (localStorage.getItem('todoArray')) {
 }
 const cleanbtn = document.getElementById('ClearButton');
 cleanbtn.addEventListener('click', () => {
-  arr = deleteMarked(arr);
+  deleteMarked(arr);
+  arr = [];
+  temp = JSON.parse(localStorage.getItem('todoArray'));
+  temp.forEach((item) => arr.push(new Todo(item.description, item.completed, temp.indexOf(item))));
   printList(arr);
 });
 printList(arr);
