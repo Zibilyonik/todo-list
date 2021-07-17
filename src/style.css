@@ -20,10 +20,12 @@ body {
   bottom: 8px;
   left: 18vw;
 }
+
 p {
   max-width: max-content;
-  cursor:text;
+  cursor: text;
 }
+
 .checkbox-style {
   position: absolute;
   bottom: 17px;
