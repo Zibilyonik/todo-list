@@ -1,25 +1,3 @@
-import changeStatus from './changeStatus.js';
-import { deleteTodo } from './adjustItems.js';
-
-function printList(list) {
-  const temp = document.getElementById('Container');
-  temp.innerText = '';
-  for (let i = 0; i < list.length; i += 1) {
-    list[i].add();
-    const checkbox = document.getElementById(`${i}-checkbox`);
-    const item = checkbox.nextSibling;
-    const delBtn = document.getElementById(`${i}-del`);
-    delBtn.addEventListener('click', () => { deleteTodo(list, i); });
-    item.addEventListener('input', () => {
-      list[i].description = item.innerText;
-      localStorage.clear();
-      localStorage.setItem('todoArray', JSON.stringify(list));
-    });
-    checkbox.onchange = () => { changeStatus(list, i); };
-  }
-  localStorage.clear();
-  localStorage.setItem('todoArray', JSON.stringify(list));
-}
 let droppedItem;
 let held;
 function heldItem(e) {
@@ -36,12 +14,11 @@ function dragger(arr) {
   const item2 = arr[droppedItem];
   arr.splice(item1.index, 1);
   arr.splice(item2.index, 0, item1);
-  for (let i = 0; i < arr.length; i += 1) {
-    arr[i].index = i;
+  for (let i = 1; i <= arr.length; i += 1) {
+    arr[i - 1].index = i;
   }
-  printList(arr);
 }
 
 export {
-  dragger, heldItem, droppedOn, printList,
+  dragger, heldItem, droppedOn,
 };

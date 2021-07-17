@@ -1,16 +1,40 @@
 import './style.css';
+import changeStatus from './changeStatus.js';
 import {
-  dragger, heldItem, droppedOn, printList,
+  dragger, heldItem, droppedOn,
 } from './dragging.js';
-import { addTodo, deleteMarked } from './adjustItems.js';
+import { addTodo, deleteMarked, deleteTodo } from './adjustItems.js';
 
 let arr = [];
 let temp = [];
+
+function printList(list) {
+  const temp = document.getElementById('Container');
+  temp.innerText = '';
+  for (let i = 1; i <= list.length; i += 1) {
+    list[i - 1].add();
+    const checkbox = document.getElementById(`${i}-checkbox`);
+    const item = checkbox.nextSibling;
+    const delBtn = document.getElementById(`${i}-del`);
+    delBtn.addEventListener('click', () => {
+      deleteTodo(list, i);
+    });
+    item.addEventListener('input', () => {
+      list[i].description = item.innerText;
+      localStorage.clear();
+      localStorage.setItem('todoArray', JSON.stringify(list));
+    });
+    checkbox.onchange = () => { changeStatus(list, i); };
+  }
+  localStorage.clear();
+  localStorage.setItem('todoArray', JSON.stringify(list));
+}
+
 class Todo {
   constructor(description = '', completed = false, index = 0) {
     this.description = description;
     this.completed = completed;
-    this.index = index;
+    this.index = index + 1;
   }
 
   add() {
@@ -43,7 +67,7 @@ class Todo {
     temp.appendChild(obj);
     obj.addEventListener('drag', heldItem);
     obj.addEventListener('dragover', droppedOn);
-    obj.addEventListener('drop', () => { dragger(arr); });
+    obj.addEventListener('drop', () => { dragger(arr); printList(arr); });
   }
 }
 
