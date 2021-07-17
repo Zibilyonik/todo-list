@@ -1,4 +1,5 @@
 import changeStatus from './changeStatus.js';
+import { deleteTodo } from './adjustItems.js';
 
 function printList(list) {
   const temp = document.getElementById('Container');
@@ -6,6 +7,8 @@ function printList(list) {
   for (let i = 0; i < list.length; i += 1) {
     list[i].add();
     const checkbox = document.getElementById(`${i}-checkbox`);
+    const delBtn = document.getElementById(`${i}-del`);
+    delBtn.addEventListener('click', () => { deleteTodo(list, i); });
     checkbox.onchange = () => { changeStatus(list, i); };
   }
   localStorage.clear();
