@@ -22,6 +22,7 @@ body {
 }
 p {
   max-width: max-content;
+  cursor:text;
 }
 .checkbox-style {
   position: absolute;

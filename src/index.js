@@ -2,9 +2,9 @@ import './style.css';
 import {
   dragger, heldItem, droppedOn, printList,
 } from './dragging.js';
-import { addTodo } from './adjustItems.js';
+import { addTodo, deleteMarked } from './adjustItems.js';
 
-const arr = [];
+let arr = [];
 let temp = [];
 class Todo {
   constructor(description = '', completed = false, index = 0) {
@@ -54,9 +54,14 @@ btn.addEventListener('click', () => {
   arr.push(new Todo(temp[num].description, temp[num].completed, temp[num].index));
   printList(arr);
 });
+
 if (localStorage.getItem('todoArray')) {
   temp = JSON.parse(localStorage.getItem('todoArray'));
   temp.forEach((item) => arr.push(new Todo(item.description, item.completed, temp.indexOf(item))));
 }
-
+const cleanbtn = document.getElementById('ClearButton');
+cleanbtn.addEventListener('click', () => {
+  arr = deleteMarked(arr);
+  printList(arr);
+});
 printList(arr);

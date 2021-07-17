@@ -15,9 +15,11 @@ function deleteTodo(arr, index) {
   localStorage.setItem('todoArray', JSON.stringify(arr));
 }
 
-function editTodo(arr, index) {
-  arr = [];
-  return index;
+function deleteMarked(arr) {
+  arr = arr.filter((item) => item.completed === false);
+  arr.forEach((item) => item.add());
+  localStorage.clear();
+  localStorage.setItem('todoArray', JSON.stringify(arr));
+  return arr;
 }
-
-export { addTodo, deleteTodo, editTodo };
+export { addTodo, deleteTodo, deleteMarked };
