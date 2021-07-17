@@ -7,8 +7,14 @@ function printList(list) {
   for (let i = 0; i < list.length; i += 1) {
     list[i].add();
     const checkbox = document.getElementById(`${i}-checkbox`);
+    const item = checkbox.nextSibling;
     const delBtn = document.getElementById(`${i}-del`);
     delBtn.addEventListener('click', () => { deleteTodo(list, i); });
+    item.addEventListener('input', () => {
+      list[i].description = item.innerText;
+      localStorage.clear();
+      localStorage.setItem('todoArray', JSON.stringify(list));
+    });
     checkbox.onchange = () => { changeStatus(list, i); };
   }
   localStorage.clear();
