@@ -18,6 +18,7 @@ function printList(list) {
     const checkbox = document.getElementById(`${i}-checkbox`);
     const item = checkbox.nextSibling;
     item.addEventListener('input', () => { editTodo(list, i); });
+    item.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); editTodo(list, i); item.blur(); } });
     checkbox.onchange = () => { changeStatus(list, i); };
   }
   localStorage.clear();
@@ -72,11 +73,19 @@ class Todo {
 }
 
 const btn = document.getElementById('SubmitButton');
+const descIt = document.getElementById('TodoDesc');
 btn.addEventListener('click', () => {
   addTodo(temp);
   const num = temp.length - 1;
   arr.push(new Todo(temp[num].description, temp[num].completed, temp[num].index));
   printList(arr);
+});
+
+descIt.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    btn.click();
+  }
 });
 
 if (localStorage.getItem('todoArray')) {
