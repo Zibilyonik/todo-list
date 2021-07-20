@@ -21,6 +21,9 @@ This way, users can keep their to-do list clean and organised for a productive d
 ![Screenshot Profile Page](./.github/assets/screenshot.png)
 
 
+## Live Version
+To access the live version of this app, please visit [this link](https://zibilyonik.github.io/todo-list/).
+
 ## Built With
 
 - HTML
