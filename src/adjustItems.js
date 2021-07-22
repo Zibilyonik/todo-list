@@ -19,8 +19,6 @@ function deleteTodo(arr, index) {
     arr[i].index = i + 1;
   }
   cont.remove();
-  localStorage.clear();
-  localStorage.setItem('todoArray', JSON.stringify(arr));
 }
 
 function editTodo(arr, index) {

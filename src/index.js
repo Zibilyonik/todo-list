@@ -63,6 +63,8 @@ class Todo {
     mainCont.appendChild(obj);
     delBtn.addEventListener('click', () => {
       deleteTodo(arr, this.index);
+      localStorage.clear();
+      localStorage.setItem('todoArray', JSON.stringify(arr));
       printList(arr);
       temp = [...arr];
     });
