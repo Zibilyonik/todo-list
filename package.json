@@ -10,7 +10,6 @@
     "start": "webpack serve --open",
     "check": "jest --watch",
     "deploy": "gh-pages -d dist"
-
   },
   "repository": {
     "type": "git",
