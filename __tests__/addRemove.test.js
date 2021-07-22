@@ -27,7 +27,7 @@ describe('check for add function', () => {
 describe('remove task', () => {
   let arr = [];
   beforeAll(() => {
-    document.body.innerHTML = '<div class="d-flex rounded col-6 col-lg-3 mx-auto mt-5 p-0 mb-1"><input type = "text" id="TodoDesc" class = "rounded col-9 p-0 m-0 text-center" placeholder="What to do?"><button type="button" class="button-style btn col-3 m-0" id="SubmitButton">Submit</button></div><ul id="Container" class="main-container list-group list-group-flush rounded col-6 col-lg-3 mb-1 mx-auto p-0"><li id="1"></li> </ul><div class="d-flex rounded col-6 col-lg-3 mx-auto p-0 mb-1"><button type="button" class="button-style btn col m-0" id="ClearButton">Delete All Completed Tasks</button></div>';
+    document.body.innerHTML = '<div class="d-flex rounded col-6 col-lg-3 mx-auto mt-5 p-0 mb-1"><input type = "text" id="TodoDesc" class = "rounded col-9 p-0 m-0 text-center" placeholder="What to do?"><button type="button" class="button-style btn col-3 m-0" id="SubmitButton">Submit</button></div><ul id="Container" class="main-container list-group list-group-flush rounded col-6 col-lg-3 mb-1 mx-auto p-0"><li id="1"></li></ul><div class="d-flex rounded col-6 col-lg-3 mx-auto p-0 mb-1"><button type="button" class="button-style btn col m-0" id="ClearButton">Delete All Completed Tasks</button></div>';
     arr = [{ index: 1, description: 'test', completed: false }];
     deleteTodo(arr, arr[0].index);
   });
@@ -35,7 +35,6 @@ describe('remove task', () => {
     expect(arr.length).toBe(0);
   });
   it('should remove the item from the dom', () => {
-    console.log(arr.length);
     expect(document.getElementById('Container').childNodes.length).toBe(0);
   });
 });
