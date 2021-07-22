@@ -36,7 +36,7 @@ To access the live version of this app, please visit [this link](https://zibilyo
 
 1. Open Terminal.
 2. Navigate to your desired location to download the contents of this repository.
-3. Copy and paste the following code into the Terminal: git clone https://github.com:Zibilyonik/todo-list.git
+3. Copy and paste the following code into the Terminal: git clone https://github.com/Zibilyonik/todo-list.git
 4. ```cd todo-list```.
 5. Install the required node modules by running `npm install` command.
 6. After installing all the required node modules, you can run the project on your own server using `npm run start` or just use the index.html file to preview it.
