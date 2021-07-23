@@ -93,3 +93,19 @@ describe('delete completed task', () => {
     expect(item.classList.contains('disabled')).toBe(true);
   });
 });
+
+describe('Drag items', () => {
+  const arr = [];
+  const droppedItem = 2;
+  const held = 1;
+  beforeAll(() => {
+    arr.push({ description: 'test1', completed: false, index: 1 }, { description: 'test2', completed: false, index: 2 });
+    dragger(arr);
+  });
+  afterAll(() => {
+    window.localStorage.setItem({});
+  });
+  it('should reorganize the array', () => {
+    expect(arr[0].description).toBe('test2');
+  });
+});
