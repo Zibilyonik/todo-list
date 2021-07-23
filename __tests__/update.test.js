@@ -4,7 +4,7 @@
 
 const { editTodo, deleteMarked } = require('../src/adjustItems.js');
 const { default: changeStatus } = require('../src/changeStatus.js');
-const { dragger, heldItem, droppedOn } = require('../src/dragging.js');
+const { dragger, adjustHeld, adjustDropped } = require('../src/dragging.js');
 
 const fakeLocalStorage = (() => {
   let store = {};
@@ -96,10 +96,10 @@ describe('delete completed task', () => {
 
 describe('Drag items', () => {
   const arr = [];
-  const droppedItem = 2;
-  const held = 1;
   beforeAll(() => {
     arr.push({ description: 'test1', completed: false, index: 1 }, { description: 'test2', completed: false, index: 2 });
+    adjustHeld(2);
+    adjustDropped(1);
     dragger(arr);
   });
   afterAll(() => {
@@ -107,5 +107,8 @@ describe('Drag items', () => {
   });
   it('should reorganize the array', () => {
     expect(arr[0].description).toBe('test2');
+  });
+  it('should reorganize the index values', () => {
+    expect(arr[0].index).toBe(1);
   });
 });

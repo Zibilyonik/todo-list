@@ -9,6 +9,14 @@ function droppedOn(e) {
   droppedItem = parseInt(e.target.id, 10);
 }
 
+function adjustDropped(val) {
+  droppedItem = val;
+}
+
+function adjustHeld(val) {
+  held = val;
+}
+
 function dragger(arr) {
   const item1 = arr[held - 1];
   const item2 = arr[droppedItem - 1];
@@ -20,5 +28,5 @@ function dragger(arr) {
 }
 
 export {
-  dragger, heldItem, droppedOn,
+  dragger, heldItem, droppedOn, adjustHeld, adjustDropped,
 };
